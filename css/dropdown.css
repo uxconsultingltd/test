@@ -16,6 +16,7 @@ details.select_container {
   display: inline-block;
   position: relative;
   width: 250px;
+  z-index: 2;
   /* border-radius: 0px; */
   /* color:#000; */
   /* border: 2px solid #000; */

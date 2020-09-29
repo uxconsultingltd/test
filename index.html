@@ -17,19 +17,44 @@
   <!-- Place favicon.ico in the root directory -->
 
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+  <!-- <link rel="stylesheet" href="css/main.css"> -->
   <link rel="stylesheet" href="css/dropdown.css">
   <link rel="stylesheet" href="css/listbox.css">
+  <link rel="stylesheet" href="css/sort-code.css">
   
   <meta name="theme-color" content="#fafafa">
+  <script>
+    function autotab(current,to)
+    {
+        if (current.getAttribute && current.value.length==current.getAttribute("maxlength")) 
+        {
+            to.focus() 
+        }
+    }
+    </script>
+
+
 </head>
 
 <body>
 
+<div id="js-bank-sort-code" class="">
+  <h3>Sort code</h3>
+  <form name="sort-code" action="">
+    <!-- <label for="first-field"></label> -->
+    <input id="first-field" type="text" maxlength="2" size="2" />
+    <span>-</span>
+    <!-- <label for="second-field"></label> -->
+    <input id="second-field" type="text" maxlength="2" size="2" />
+    <span>-</span>
+    <!-- <label for="third-field"></label> -->
+    <input id="third-field" type="text" maxlength="2" size="2" />
+  </form>
+</div>
+
+
   <!-- Add your site or application content here -->
- <h1>Dropdown</h1>
-
-
+ <!-- <h1>Dropdown</h1>
   <details id="example_select" class="select_container">
     <summary>--</summary>
     <div role="listbox" class="select">
@@ -61,8 +86,6 @@
         </select>
     </section>
 
-
-
   <ul class="dropdown">
     
     <li id="dropdown-label" class="dropdown__label">
@@ -93,8 +116,6 @@
       </ul>
     </li>
   </ul>
-
-
 
     <div class="listbox-area">
       <div class="left-area">
@@ -193,8 +214,7 @@
           </ul>
         </div>
       </div>
-    </div>
-
+    </div> -->
 
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
@@ -202,6 +222,7 @@
   <script src="js/main.js"></script>
   <script src="js/listbox.js"></script>
   <script src="js/listbox-collapsible.js"></script>
+  <!-- <script src="js/sort-code.js"></script> -->
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>

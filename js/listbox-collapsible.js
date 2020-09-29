@@ -6,8 +6,8 @@
 
 window.addEventListener('load', function () {
     var button = document.getElementById('exp_button');
-    var exListbox = new aria.Listbox(document.getElementById('exp_elem_list'));
-    var listboxButton = new aria.ListboxButton(button, exListbox);
+    // var exListbox = new aria.Listbox(document.getElementById('exp_elem_list'));
+    // var listboxButton = new aria.ListboxButton(button, exListbox);
   });
   
   var aria = aria || {};

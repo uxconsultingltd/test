@@ -1,5 +1,7 @@
-input{
+.sort-code input{
+    width: 25px;
     border: 2px solid black;
     text-align: center;
     padding: 5px 10px;
+
 }

@@ -23,37 +23,64 @@
   <link rel="stylesheet" href="css/sort-code.css">
   
   <meta name="theme-color" content="#fafafa">
-  <script>
-    function autotab(current,to)
-    {
-        if (current.getAttribute && current.value.length==current.getAttribute("maxlength")) 
-        {
-            to.focus() 
-        }
-    }
-    </script>
-
-
 </head>
 
 <body>
 
-<div id="js-bank-sort-code" class="">
+<script>
+  function autotab(current,to,previous){
+    var key = event.keyCode || event.charCode;
+    console.log(key);
+
+    if (current.value.length == 0 && key == 8) {
+      previous.focus();
+    } else {
+        //check max value and move to the next input
+        if (current.getAttribute && 
+          current.value.length == current.getAttribute("maxlength")) {
+            to.focus() 
+            } 
+      }
+  }
+
+  function isNumberKey(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+
+         return true;
+      }
+
+  </script>
+  
   <h3>Sort code</h3>
-  <form name="sort-code" action="">
-    <!-- <label for="first-field"></label> -->
-    <input id="first-field" type="text" maxlength="2" size="2" />
-    <span>-</span>
-    <!-- <label for="second-field"></label> -->
-    <input id="second-field" type="text" maxlength="2" size="2" />
-    <span>-</span>
-    <!-- <label for="third-field"></label> -->
-    <input id="third-field" type="text" maxlength="2" size="2" />
+  <form name="sortcode" class="sort-code">
+    <input 
+      type="text" 
+      name="sortcode0" 
+      size=2 
+      onKeyup="autotab(this, document.sortcode.sortcode1, document.sortcode.sortcode0)"
+      onkeypress="return isNumberKey(event)" 
+      maxlength=2>
+      <span>-</span> 
+    <input 
+      type="text" 
+      name="sortcode1" 
+      size=2 
+      onKeyup="autotab(this, document.sortcode.sortcode2, document.sortcode.sortcode0)"
+      onkeypress="return isNumberKey(event)" 
+      maxlength=2>
+      <span>-</span> 
+    <input 
+      type="text" 
+      name="sortcode2" 
+      size=2 
+      maxlength=2
+      onKeyup="autotab(this, document.sortcode.sortcode2, document.sortcode.sortcode1)"
+      onkeypress="return isNumberKey(event)">
   </form>
-</div>
 
-
-  <!-- Add your site or application content here -->
  <!-- <h1>Dropdown</h1>
   <details id="example_select" class="select_container">
     <summary>--</summary>
@@ -219,7 +246,7 @@
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+  <!-- <script src="js/main.js"></script> -->
   <script src="js/listbox.js"></script>
   <script src="js/listbox-collapsible.js"></script>
   <!-- <script src="js/sort-code.js"></script> -->
